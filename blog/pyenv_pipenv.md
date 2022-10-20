@@ -134,7 +134,7 @@ pip install --user pipenv
 When using `pipenv` it is specific to a project folder. What happens next depends on whether the
 files `Pipfile` and `Pipfile.lock` exist.
 
-### The files exist
+### They do...
 
 If the `Pipfile` and `Pipefile.lock` already exist we could install all the project dependencies
 with the command:
@@ -143,7 +143,7 @@ with the command:
 pipenv install --dev
 ```
 
-### They don't
+### They don't...
 
 When these files _don't_ exist, they will be created.
 
@@ -192,7 +192,7 @@ up under the `[dev-packages]` category.
     pipenv install pytest --dev
     ```
 
-    Now if we look at the `Pipfile` it contains:
+    Now the `Pipfile` contains:
 
     ```
     [[source]]
@@ -210,8 +210,8 @@ up under the `[dev-packages]` category.
     python_version = "3.8"
     ```
 
-> In both cases, we didn't specify a version for either package. The "\*" indicates the latest
-> version was used.
+    > In both cases, we didn't specify a version for either package. The "\*" indicates the latest
+    > version was used.
 
 3. Install a _specific_ package
 
@@ -219,7 +219,7 @@ up under the `[dev-packages]` category.
     pipenv install tensorflow==2.7.0
     ```
 
-    If we look at the `Pipfile` it now specifies this specific version of tensorflow.
+    The `Pipfile` now specifies a specific version of tensorflow.
 
     ```
     [[source]]
@@ -246,7 +246,7 @@ up under the `[dev-packages]` category.
 
 5. Remove a virtual environment
 
-    We we ran the initial `pipenv install` this created a virtual environment in the project folder.
+    When we ran the initial `pipenv install` this created a virtual environment in the project folder.
     If for some reason we want to remove the virtual environment we can run the command:
 
     ```
@@ -260,7 +260,7 @@ up under the `[dev-packages]` category.
     pipenv install --dev
     ```
 
-6. Run a python program in the virtual environment
+6. Run a python program in the project's virtual environment
 
     ```
     pipenv run python3 my-python-program.py
