@@ -1,6 +1,6 @@
 # pyenv and pipenv
 
-There have been many versions of python over the years. Occassionally a programmer can run into a
+There have been many versions of python over the years. Occasionally a programmer can run into a
 situation where a newer version of python breaks a program written for an older version. Python
 packages also often have version dependencies.
 
@@ -125,30 +125,32 @@ to install on Ubuntu.
 
 [top](#pyenv-and-pipenv)
 
-1. Install pipenv
+### Install pipenv
 
-    ```
-    pip install --user pipenv
-    ```
+```
+pip install --user pipenv
+```
 
 ### Basic pipenv commands
 
 When using `pipenv` it is specific to a project folder. What happens next depends on whether the
-files `Pipfile` and `Pipfile.lock` exist. When these files _don't_ exist, they will be created.
+files `Pipfile` and `Pipfile.lock` exist.
+
+> When these files _don't_ exist, they will be created.
 
 ```
 cd my-project-folder
 pipenv install
 ```
 
-> If the `Pipfile` and `Pipefile.lock` already exist, for example, if we are a developer and checked
-> someone else's existing project, we could install all the project dependencies with the command:
+> If the `Pipfile` and `Pipefile.lock` already exist we could install all the project dependencies
+> with the command:
 >
 > ```
 > pipenv install --dev
 > ```
 
-The initial `Pipfile` will look something like:
+A newly created `Pipfile` will look something like:
 
 ```
 [[source]]
@@ -201,7 +203,7 @@ pytest = "*"
 python_version = "3.8"
 ```
 
-> In both cases, we didn't specify a version for either package. The `"*"` indicates the latest
+> In both cases, we didn't specify a version for either package. The "\*" indicates the latest
 > version was used.
 
 3. Install a _specific_ package
