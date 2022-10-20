@@ -131,24 +131,25 @@ to install on Ubuntu.
 pip install --user pipenv
 ```
 
-### Basic pipenv commands
-
 When using `pipenv` it is specific to a project folder. What happens next depends on whether the
 files `Pipfile` and `Pipfile.lock` exist.
 
-> When these files _don't_ exist, they will be created.
+### The files exist
+
+If the `Pipfile` and `Pipefile.lock` already exist we could install all the project dependencies
+with the command:
 
 ```
-cd my-project-folder
+pipenv install --dev
+```
+
+### They don't
+
+When these files _don't_ exist, they will be created.
+
+```
 pipenv install
 ```
-
-> If the `Pipfile` and `Pipefile.lock` already exist we could install all the project dependencies
-> with the command:
->
-> ```
-> pipenv install --dev
-> ```
 
 A newly created `Pipfile` will look something like:
 
@@ -166,14 +167,18 @@ name = "pypi"
 python_version = "3.8"
 ```
 
-Any installed packages show up under the `[packages]` category, and any _development_ packages show
+Any installed packages show up under the `[packages]` category, and any development packages show
 up under the `[dev-packages]` category.
 
-> Right now, we don't have any packages.
+### Basic pipenv commands
 
 1. Installing a package
 
-    > In this example we install the `pygame` package
+    ```
+    pipenv install <package>
+    ```
+
+    For example to install `pygame`
 
     ```
     pipenv install pygame
@@ -181,27 +186,29 @@ up under the `[dev-packages]` category.
 
 2. Installing a development package
 
+    To indicate a development package add `--dev` to the command
+
     ```
     pipenv install pytest --dev
     ```
 
-Now if we look at the `Pipfile` it contains:
+    Now if we look at the `Pipfile` it contains:
 
-```
-[[source]]
-url = "https://pypi.org/simple"
-verify_ssl = true
-name = "pypi"
+    ```
+    [[source]]
+    url = "https://pypi.org/simple"
+    verify_ssl = true
+    name = "pypi"
 
-[packages]
-pygame = "*"
+    [packages]
+    pygame = "*"
 
-[dev-packages]
-pytest = "*"
+    [dev-packages]
+    pytest = "*"
 
-[requires]
-python_version = "3.8"
-```
+    [requires]
+    python_version = "3.8"
+    ```
 
 > In both cases, we didn't specify a version for either package. The "\*" indicates the latest
 > version was used.
@@ -212,24 +219,24 @@ python_version = "3.8"
     pipenv install tensorflow==2.7.0
     ```
 
-If we look at the `Pipfile` it now specifies this specific version of tensorflow.
+    If we look at the `Pipfile` it now specifies this specific version of tensorflow.
 
-```
-[[source]]
-url = "https://pypi.org/simple"
-verify_ssl = true
-name = "pypi"
+    ```
+    [[source]]
+    url = "https://pypi.org/simple"
+    verify_ssl = true
+    name = "pypi"
 
-[packages]
-pygame = "*"
-tensorflow = "==2.7.0"
+    [packages]
+    pygame = "*"
+    tensorflow = "==2.7.0"
 
-[dev-packages]
-pytest = "*"
+    [dev-packages]
+    pytest = "*"
 
-[requires]
-python_version = "3.8"
-```
+    [requires]
+    python_version = "3.8"
+    ```
 
 4. Uninstall an installed package
 
